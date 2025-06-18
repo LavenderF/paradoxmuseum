@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>怪奇数学悖论博物馆</title>
+  <style>
+    body {
+      font-family: 'Courier New', monospace;
+      background: linear-gradient(135deg, #e6ffe6, #ccf2ff);
+      margin: 0; padding: 0;
+      color: #2e2e2e;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+    header {
+      background: #ffeecc;
+      width: 100%;
+      padding: 20px 0;
+      text-align: center;
+      border-bottom: 4px dashed #ffbb99;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+      color: #663399;
+    }
+    .paradox-list {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      padding: 40px 20px;
+      max-width: 800px;
+    }
+    .paradox {
+      background: #fff8e7;
+      border-left: 6px solid #ff99cc;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .paradox h2 {
+      margin-top: 0;
+      color: #c94f7c;
+    }
+    .paradox pre {
+      background: #f0f0f0;
+      padding: 10px;
+      border-radius: 6px;
+      overflow-x: auto;
+    }
+    .paradox button {
+      margin-top: 15px;
+      background-color: #66cc99;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1em;
+    }
+    .paradox button:hover {
+      background-color: #55aa88;
+    }
+    footer {
+      margin-top: auto;
+      padding: 20px;
+      text-align: center;
+      font-size: 0.9em;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>怪奇数学悖论博物馆 🧠🎪</h1>
+  </header>
+  
+  <div class="paradox-list">
+    <div class="paradox">
+      <h2>#P-007 1 = 0.999... 🤯</h2>
+      <p>我们都从小学过这个神秘等式：<strong>1 = 0.999…</strong>。你愤怒了？你不理解？</p>
+      <pre>
+设 x = 0.999...
+10x = 9.999...
+10x - x = 9.999... - 0.999...
+9x = 9
+x = 1</pre>
+      <p>你感到被背叛了吗？你不是一个人。</p>
+      <button onclick="alert('真理不会等你准备好。')">我不信，我要反抗</button>
+    </div>
+
+    <div class="paradox">
+      <h2>#P-013 你今天真的存在吗？ 👻</h2>
+      <p>“我思故我在”，但如果我用的是 AI 写的代码来思考呢？你存在的定义是代码的一部分还是电波的偶然波动？</p>
+      <p>欢迎来到悖论自我怀疑展厅，你正在被观察。也许只是个程序的回声。</p>
+      <button onclick="alert('你可能不存在，但你点了按钮。')">确认存在</button>
+    </div>
+
+    <div class="paradox">
+      <h2>#P-042 函数的抑郁症 📉</h2>
+      <p>“我连续，但我不知道我为什么存在。”</p>
+      <p>有些函数在所有实数上连续，却处处不可导，它们挣扎着试图表现出“光滑”，却无法被任何一个切线理解。</p>
+      <p>我们称它为 Weierstrass 怪兽，也许它只需要一点数学心理咨询。</p>
+      <button onclick="alert('你对函数的情绪表示理解。')">安慰它一下</button>
+    </div>
+
+    <div class="paradox">
+      <h2>#P-066 悖论不再是悖论悖论 🔁</h2>
+      <p>“如果我说这不是悖论，那它是悖论吗？”</p>
+      <p>悖论的定义是“逻辑矛盾”，可你怎么定义定义？</p>
+      <p>如果你把所有悖论都归入一个非悖论集合，那这个集合是悖论吗？</p>
+      <button onclick="alert('悖论已脱离理性轨道，欢迎来到真理边界。')">我接受这种混乱</button>
+    </div>
+  </div>
+
+  <footer>
+    © 2025 怪奇数学悖论博物馆 | 你的意识是个变量
+  </footer>
+</body>
+</html>
