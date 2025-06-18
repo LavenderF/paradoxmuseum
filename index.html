@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>怪奇数学悖论博物馆</title>
   <style>
     body {
@@ -41,7 +41,7 @@
       padding: 20px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
-    .paradox h2 {
+    .paradox h2, .paradox h3 {
       margin-top: 0;
       color: #c94f7c;
     }
@@ -50,6 +50,7 @@
       padding: 10px;
       border-radius: 6px;
       overflow-x: auto;
+      white-space: pre-wrap;
     }
     .paradox button {
       margin-top: 15px;
@@ -71,63 +72,134 @@
       font-size: 0.9em;
       color: #888;
     }
+    .game-section {
+      padding: 40px 20px;
+      max-width: 800px;
+      width: 100%;
+      background: #e8f8f5;
+      border-top: 3px dotted #82e0aa;
+      margin-top: 40px;
+      text-align: center;
+      border-radius: 12px;
+      box-shadow: 0 0 10px #a8d5c6;
+    }
+    .btn-game {
+      margin-top: 20px;
+      background-color: #58d68d;
+      border: none;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1em;
+      transition: background-color 0.3s ease;
+    }
+    .btn-game:hover {
+      background-color: #45c27b;
+    }
+    .result {
+      margin-top: 20px;
+      font-style: italic;
+      color: #af7ac5;
+      min-height: 40px;
+      font-weight: bold;
+    }
   </style>
+  <script>
+    const paradoxes = [
+      { 
+        title: '1 = 0.999...', 
+        content: '数学上1和0.999...是完全相等的，\n但你的直觉总在抗拒这份“完美”。', 
+        reference: '拉塞尔悖论，哥德尔风味' 
+      },
+      { 
+        title: '你今天真的存在吗？', 
+        content: '当你思考“我是否存在”时，\n到底是谁在思考？', 
+        reference: '存在论悖论' 
+      },
+      { 
+        title: '函数的抑郁症', 
+        content: '一个函数连续却处处不可导，\n像Weierstrass怪兽，奇怪又孤独。', 
+        reference: '数学怪诞' 
+      },
+      { 
+        title: '悖论不再是悖论悖论', 
+        content: '如果我说“这不是悖论”，\n它还能算悖论吗？', 
+        reference: '自指悖论' 
+      },
+      { 
+        title: '哥德尔的茶杯', 
+        content: '在任何系统中，总有无法证明的真理，\n就像茶杯无法搅动整个宇宙。', 
+        reference: '哥德尔不完备定理' 
+      },
+      { 
+        title: '定义未找到', 
+        content: '每当你试图定义“存在”，\n它就又变成了悖论的无限循环。', 
+        reference: '无限递归悖论' 
+      }
+    ];
+
+    function showRandomParadox() {
+      const paradox = paradoxes[Math.floor(Math.random() * paradoxes.length)];
+      document.getElementById("random-title").innerText = paradox.title;
+      document.getElementById("random-content").innerText = paradox.content;
+      document.getElementById("random-ref").innerText = paradox.reference;
+    }
+
+    let score = 0;
+    function selectAnswer(answer) {
+      if (answer === 'A') score += 1;
+      else if (answer === 'B') score += 2;
+      else score += 3;
+
+      const resultEl = document.getElementById("quiz-result");
+      if (score >= 5) {
+        resultEl.innerText = "你是：哥德尔的茶杯！你让系统无法自洽！";
+      } else if (score >= 3) {
+        resultEl.innerText = "你是：1 = 0.999...！你挑战一切常规的界限！";
+      } else {
+        resultEl.innerText = "你是：悖论本身！欢迎来到无限循环。";
+      }
+    }
+  </script>
 </head>
 <body>
   <header>
     <h1>怪奇数学悖论博物馆 🧠🎪</h1>
   </header>
 
-  <div class="paradox-list">
+  <div class="game-section paradox-list">
     <div class="paradox">
-      <h2>#P-007 1 = 0.999... 🤯</h2>
-      <p>我们都从小学过这个神秘等式：<strong>1 = 0.999…</strong>。你愤怒了？你不理解？</p>
-      <pre>
-设 x = 0.999...
-10x = 9.999...
-10x - x = 9.999... - 0.999...
-9x = 9
-x = 1</pre>
-      <p>你感到被背叛了吗？你不是一个人。</p>
-      <button onclick="alert('真理不会等你准备好。')">我不信，我要反抗</button>
+      <h2>悖论简介</h2>
+      <p>欢迎来到这个充满怪诞与幽默的数学悖论世界！</p>
+      <ul>
+        <li><strong>1 = 0.999...</strong>：不只是数学，更是直觉的挑战。</li>
+        <li><strong>你今天真的存在吗？</strong>：存在，是谁在存在？</li>
+        <li><strong>函数的抑郁症</strong>：怪兽函数，持续折磨数学家。</li>
+        <li><strong>悖论不再是悖论悖论</strong>：说“不是悖论”也是悖论？</li>
+        <li><strong>哥德尔的茶杯</strong>：无法证明一切的无解定理。</li>
+        <li><strong>定义未找到</strong>：定义本身成了无法定义的悖论。</li>
+      </ul>
     </div>
+  </div>
 
+  <div class="game-section">
+    <h2>🎲 随机悖论探索</h2>
     <div class="paradox">
-      <h2>#P-013 你今天真的存在吗？ 👻</h2>
-      <p>“我思故我在”，但如果我用的是 AI 写的代码来思考呢？你存在的定义是代码的一部分还是电波的偶然波动？</p>
-      <p>欢迎来到悖论自我怀疑展厅，你正在被观察。也许只是个程序的回声。</p>
-      <button onclick="alert('你可能不存在，但你点了按钮。')">确认存在</button>
+      <h3 id="random-title">随机悖论展示区</h3>
+      <pre id="random-content">点下按钮，宇宙选择你要面对的矛盾。</pre>
+      <p><em id="random-ref">（哲学数据加载中...）</em></p>
+      <button class="btn-game" onclick="showRandomParadox()">加载随机悖论</button>
     </div>
+  </div>
 
-    <div class="paradox">
-      <h2>#P-042 函数的抑郁症 📉</h2>
-      <p>“我连续，但我不知道我为什么存在。”</p>
-      <p>有些函数在所有实数上连续，却处处不可导，它们挣扎着试图表现出“光滑”，却无法被任何一个切线理解。</p>
-      <p>我们称它为 Weierstrass 怪兽，也许它只需要一点数学心理咨询。</p>
-      <button onclick="alert('你对函数的情绪表示理解。')">安慰它一下</button>
-    </div>
-
-    <div class="paradox">
-      <h2>#P-066 悖论不再是悖论悖论 🔁</h2>
-      <p>“如果我说这不是悖论，那它是悖论吗？”</p>
-      <p>悖论的定义是“逻辑矛盾”，可你怎么定义定义？</p>
-      <p>如果你把所有悖论都归入一个非悖论集合，那这个集合是悖论吗？</p>
-      <button onclick="alert('悖论已脱离理性轨道，欢迎来到真理边界。')">我接受这种混乱</button>
-    </div>
-
-    <div class="paradox">
-      <h2>#P-099 哥德尔的茶杯 🫖</h2>
-      <p>你可以写出一个数学系统，但不能在这个系统内部证明它是完备的。如果你能——那你已经不是人类，而是茶杯上的真理仙子。</p>
-      <p>“凡是能自洽地定义一切真理的系统，必有超出它能力的真理。”</p>
-      <button onclick="alert('哥德尔笑了笑，把茶倒进了你的假设里。')">喝下哥德尔的茶</button>
-    </div>
-
-    <div class="paradox">
-      <h2>#P-404 定义未找到 🌀</h2>
-      <p>你想定义“无限”？“自然数”？“存在”？可每次你以为抓住了它，它就消失了。</p>
-      <p>你看到这个页面，并不是因为它不存在，而是因为它正在思考自己是否存在。</p>
-      <button onclick="alert('哲学404：你无法定义未定义之物。')">重新加载定义</button>
-    </div>
+  <div class="game-section">
+    <h2>🔮 你是哪个悖论？</h2>
+    <p>问题：你怎么看待无法证明的真理？</p>
+    <button class="btn-game" onclick="selectAnswer('A')">A: 它无关紧要。</button>
+    <button class="btn-game" onclick="selectAnswer('B')">B: 它让世界更加神秘。</button>
+    <button class="btn-game" onclick="selectAnswer('C')">C: 它挑战了我对真理的理解。</button>
+    <p class="result" id="quiz-result">选择一个答案，揭示你是哪类悖论！</p>
   </div>
 
   <footer>
@@ -135,4 +207,3 @@ x = 1</pre>
   </footer>
 </body>
 </html>
-
