@@ -106,46 +106,21 @@
     }
   </style>
   <script>
-    const paradoxes = [
-      { 
-        title: '1 = 0.999...', 
-        content: '数学上1和0.999...是完全相等的，\n但你的直觉总在抗拒这份“完美”。', 
-        reference: '拉塞尔悖论，哥德尔风味' 
-      },
-      { 
-        title: '你今天真的存在吗？', 
-        content: '当你思考“我是否存在”时，\n到底是谁在思考？', 
-        reference: '存在论悖论' 
-      },
-      { 
-        title: '函数的抑郁症', 
-        content: '一个函数连续却处处不可导，\n像Weierstrass怪兽，奇怪又孤独。', 
-        reference: '数学怪诞' 
-      },
-      { 
-        title: '悖论不再是悖论悖论', 
-        content: '如果我说“这不是悖论”，\n它还能算悖论吗？', 
-        reference: '自指悖论' 
-      },
-      { 
-        title: '哥德尔的茶杯', 
-        content: '在任何系统中，总有无法证明的真理，\n就像茶杯无法搅动整个宇宙。', 
-        reference: '哥德尔不完备定理' 
-      },
-      { 
-        title: '定义未找到', 
-        content: '每当你试图定义“存在”，\n它就又变成了悖论的无限循环。', 
-        reference: '无限递归悖论' 
-      }
+       const paradoxes = [
+      { title: '1 = 0.999...', content: '证明：1 = 0.999...', reference: '拉塞尔悖论，哥德尔风味' },
+      { title: '你今天真的存在吗？', content: '当你思考你是否存在时，谁在思考？', reference: '存在论悖论' },
+      { title: '函数的抑郁症', content: '连续但却没有意义，像Weierstrass怪兽。', reference: '数学怪诞' },
+      { title: '悖论不再是悖论悖论', content: '如果我说这不是悖论，那它是悖论吗？', reference: '自指悖论' },
+      { title: '哥德尔的茶杯', content: '你不能在一个系统内证明所有事，像茶杯无法搅动宇宙。', reference: '哥德尔不完备定理' },
+      { title: '定义未找到', content: '每当你试图定义“存在”，它就变成了悖论。', reference: '无限递归悖论' }
     ];
 
     function showRandomParadox() {
       const paradox = paradoxes[Math.floor(Math.random() * paradoxes.length)];
-      document.getElementById("random-title").innerText = paradox.title;
-      document.getElementById("random-content").innerText = paradox.content;
-      document.getElementById("random-ref").innerText = paradox.reference;
+      document.getElementById("paradox-title").innerText = paradox.title;
+      document.getElementById("paradox-content").innerText = paradox.content;
+      document.getElementById("paradox-reference").innerText = paradox.reference;
     }
-
     let score = 0;
     function selectAnswer(answer) {
       if (answer === 'A') score += 1;
